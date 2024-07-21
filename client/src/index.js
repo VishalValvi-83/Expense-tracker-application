@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Toaster from 'react-hot-toast';
+import {Toaster} from 'react-hot-toast';
 import './index.css';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Home from './view/Home/Home';
@@ -19,7 +19,7 @@ const router = createBrowserRouter([
     element: <Login />
   },
   {
-    path: "/",
+    path: "/signup",
     element: <Signup />
   },
   {

@@ -7,7 +7,57 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.btn {
+  background-color: tomato;
+  outline: none;
+  border: none;
+}
+
+.btn:hover {
+  background-color: rgb(244, 126, 106);
+}
+
+.form-heading {
+  color: gold;
+  font-family: fantasy;
+}
+
+.signup-form,
+.login-form {
+
+  padding: 40px 20px;
+  margin-top: 50px;
+  border-radius: 5px;
+  width: 550px;
+  font: 12px Arial, Helvetica, sans-serif;
+  background: url(./bg.jpg) no-repeat left top;
+  background-size: cover;
+}
+
+.form-control {
+  background-color: rgb(238, 220, 168);
+}
+
+label {
+  color: brown;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+
+  .signup-form,
+  .login-form {
+
+    width: 60%;
+  }
+
+}
+
+@media screen and (max-width: 630px) {
+
+  .signup-form,
+  .login-form {
+    width: 90%;
+  }
+
 }
