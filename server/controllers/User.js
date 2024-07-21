@@ -38,10 +38,10 @@ const postSignup = async (req, res) => {
         const existingUser = await User.findOne({ email });
         if (existingUser) return res.json({ message: "User already exists" });
     }
-    catch (error) {
+    catch {
         res.json({
             success: false,
-            message: error.masssage,
+            message: "Error",
             user: null
         });
     }

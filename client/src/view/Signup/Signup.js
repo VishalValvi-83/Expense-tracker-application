@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import toast from 'react-hot-toast'
-import './Signup.css'
+
 function Signup() {
   const [user, setUser] = useState({
     fullName: '',
@@ -65,8 +65,10 @@ function Signup() {
           <label for="floatingPassword">Password</label>
         </div>
 
+        <div className='form-footer'>
         <button className='btn' onClick={signup} >Register</button>
-
+          <p className='footer-text'>Already have an account? <a href='/login'>Login</a></p>
+        </div>
       </div>
     </div>
   )
