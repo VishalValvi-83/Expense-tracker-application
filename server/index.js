@@ -4,7 +4,7 @@ dotenv.config();
 import cors from 'cors'
 import mongoose from 'mongoose';
 import { postLogin, postSignup } from './controllers/User.js';
-import { postTransactions } from './controllers/Transaction.js';
+import { getTransaction, postTransactions } from './controllers/Transaction.js';
 
 const app = express();
 app.use(express.json());
@@ -31,7 +31,8 @@ app.get("/", (req, res) => {
 
 app.post("/signup", postSignup)
 app.post("/login", postLogin);
-app.post("/transaction", postTransactions);
+app.post("/transactions", postTransactions);
+app.get("/transactions",getTransaction)
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {

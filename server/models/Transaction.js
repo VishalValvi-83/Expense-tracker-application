@@ -5,7 +5,7 @@ const transactionSchema = new Schema({
     amount: { type: Number, required: true },
     category: { type: String, default: "others" },
     date: { type: Date, default: Date.now },
-    description: { type: String, default: "others" },
+    description: { type: String, required: false },
     type: { type: String, enum: ['debit', 'credit'], required: true },
     user: { type: Schema.Types.ObjectId, ref: 'User', required: true }
 }, {
