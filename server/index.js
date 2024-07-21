@@ -3,9 +3,8 @@ import dotenv from 'dotenv'
 dotenv.config();
 import cors from 'cors'
 import mongoose from 'mongoose';
-import User from './models/User.js'
-import Transaction from './models/Transaction.js'
 import { postLogin, postSignup } from './controllers/User.js';
+import { postTransactions } from './controllers/Transaction.js';
 
 const app = express();
 app.use(express.json());
@@ -31,8 +30,8 @@ app.get("/", (req, res) => {
 })
 
 app.post("/signup", postSignup)
-
 app.post("/login", postLogin);
+app.post("/transaction", postTransactions);
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
