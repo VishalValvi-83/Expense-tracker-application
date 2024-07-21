@@ -63,6 +63,19 @@ app.post("/signup", async (req, res) => {
     }
 })
 
+app.post("/login", async (req, res) => {
+    const { email, password } = req.body;
+
+    const user = await User.findOne({
+        email: email, password: password
+    });
+    if (!user) return res.json({ success: false, message: "Invalid email or password" });
+
+    return res.json({ success: true, message: "Login successfully",
+        data : user
+     });
+});
+
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
     console.log(`Server is running on port http://localhost:${PORT}`);
