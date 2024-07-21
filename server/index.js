@@ -5,6 +5,7 @@ import cors from 'cors'
 import mongoose from 'mongoose';
 import User from './models/User.js'
 import Transaction from './models/Transaction.js'
+import { postLogin, postSignup } from './controllers/User.js';
 
 const app = express();
 app.use(express.json());
@@ -29,52 +30,9 @@ app.get("/", (req, res) => {
     res.send("Hello, World!");
 })
 
-app.post("/signup", async (req, res) => {
-    const {
-        fullName,
-        email,
-        password,
-        dob
-    } = req.body
+app.post("/signup", postSignup)
 
-    const user = new User({
-        fullName,
-        email,
-        password,
-        dob: new Date(dob)
-    });
-
-    try {
-        const saveduser = await user.save()
-        res.json({
-            success: true,
-            message: "User created successfully",
-            user: saveduser
-        });
-        const existingUser = await User.findOne({ email });
-        if (existingUser) return res.json({ message: "User already exists" });
-    }
-    catch (error) {
-        res.json({
-            success: false,
-            message: error.masssage,
-            user: null
-        });
-    }
-})
-
-app.post("/login", async (req, res) => {
-    const { email, password } = req.body;
-
-    const user = await User.findOne({
-        email: email, password: password
-    });
-    if (!user) return res.json({ success: false, message: "Invalid email or password" });
-
-    return res.json({ success: true, message: "Login successfully",
-        data : user
-     });
-});
+app.post("/login", postLogin);
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
