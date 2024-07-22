@@ -54,12 +54,12 @@ function Home() {
 
 
   return (<>
-  <Navbar/>
+  <Navbar user={user} />
     <div className='main mt-4 d-flex flex-wrap'>
       <Addtransaction user={user} />
       <div className='dash-transaction-cotainer'>
         <div className='dashboard mb-3' >
-          <h3 className='mb-3 form-heading text-light text-center'>Dashboard</h3>
+          <h3 className='mb-3 form-heading text-light mt-2 text-center'>Dashboard</h3>
           <div className='amount-container'>
             <p className='income '>
               <span>Total Income: </span> <br /> {"₹" + totalIncome}</p>
@@ -71,6 +71,7 @@ function Home() {
               ₹{totalIncome - totalExpense} </p>
           </div>
         </div>
+        <h3 className='text-center form-heading text-light'>Transactions </h3>
         <div className='transaction-container '>
           {
             transaction.map((transaction) => {

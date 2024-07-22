@@ -1,10 +1,14 @@
 import toast from "react-hot-toast"
-
-function Navbar() {
+import Logo from './pocket.png'
+import User from './user.png'
+function Navbar({ user }) {
     return (
         <nav class="navbar bg-dark navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
             <div class="container-fluid">
-                <span class="navbar-brand">POCKET</span>
+                <span class="navbar-brand">
+                    <img src={Logo} alt="Logo" width="30" height="24" class="d-inline-block align-text-top" />
+                    POCKET
+                </span>
                 <button
                     class="navbar-toggler"
                     type="button"
@@ -46,6 +50,11 @@ function Navbar() {
                         </li>
                     </ul>
                 </div>
+                {
+                    user && <div className="navbar-text">Welcome, {user.fullName}
+                        <img src={User} alt="Logo" width="26" height="26" class="d-inline-block align-text-top ms-2" />
+                    </div>
+                }
             </div>
         </nav>
     )
