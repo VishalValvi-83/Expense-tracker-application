@@ -3,18 +3,19 @@ import './Transactioncard.css'
 function Transactioncard({ _id, title, description, amount, category, type, createdAt }) {
     return (
         <div className='transaction-card row mb-3'>
-            <div className='col-lg-4 col-sm-6 transaction-title'>
-                <h3>{title}</h3>
-                <p className='transaction-date'> {new Date(createdAt).toLocaleString()}</p>
+            <div className='col-lg-3 col-sm-6 transaction-title'>
+                <h4>{title}</h4>
+                <span className='transaction-date'> {new Date(createdAt).toLocaleString()}</span>
             </div>
             <div className='col-lg-4 col-sm-6 text-center'>
-                <p className='transaction-description'>{description}</p>
-                <p className='fs-6 transaction-category'>{category}</p>
+                <p className='mt-1 transaction-description'>{description}</p>
+                <span className='transaction-category'>{category}</span>
             </div>
-            <div className=' col-lg-4 col-sm-6 text-center '>
-                <span className={`fs-4 fw-bold ${type === 'credit' ? "text-success" : "text-danger"}`}>
-                    {type === 'credit' ? "+" : "-"}  {amount}
-                    <p className='fs-5'>{type + "ed"}</p>
+            <div className='col-lg-4 col-sm-6 text-center '>
+                <span className={`fs-5 fw-bold ${type === 'credit' ? "text-success" : "text-danger"}`}>
+                    {type === 'credit' ? "+ " : "- "}
+                    {"₹" + amount}
+                    <span className='fs-6'> {type + "ed"}</span>
                 </span>
             </div>
         </div>

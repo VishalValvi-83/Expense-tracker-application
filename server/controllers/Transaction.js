@@ -16,13 +16,14 @@ const postTransactions = async (req, res) => {
         const savedTransaction = await transaction.save();
         res.json({
             success: true,
-            message: "Transaction saved successfully", transaction: savedTransaction
+            message: "Transaction saved successfully",
+            transaction: savedTransaction
         });
     }
-    catch (error) {
+    catch {
         res.json({
             success: false,
-            message: error.message,
+            message: "Transaction saved successfully",
             data: null
 
         });
