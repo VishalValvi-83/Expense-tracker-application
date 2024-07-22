@@ -26,6 +26,10 @@ function Signup() {
         email: '',
         password: ''
       })
+      toast.loading("Redirecting to Login")
+      setTimeout(() => {
+        window.location.href = '/login'
+      }, 2000)
     }
     else {
       toast.error(response.data.message)
