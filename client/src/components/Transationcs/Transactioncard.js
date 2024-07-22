@@ -1,6 +1,25 @@
 import React from 'react'
 import './Transactioncard.css'
-function Transactioncard({ _id, title, description, amount, category, type, createdAt }) {
+import Delete from './trash-bin.png'
+import toast from 'react-hot-toast'
+import axios from 'axios'
+
+function Transactioncard({ _id, title, description, amount, category, type, createdAt, loadTransactions }) {
+
+    const deletetransactions = async () => {
+        if (!_id) {
+          toast.error("Invalid transaction ID");
+          return;
+        }
+        try {
+          const response = await axios.delete(`${process.env.REACT_APP_BACKEND_URL}/transactions/${_id}`)
+          toast.success(response.data.message)
+        } catch (error) {
+          toast.error("Failed to delete transaction!")
+        }
+        loadTransactions()
+      }
+
     return (
         <div className='transaction-card row mb-3'>
             <div className='col-lg-3 col-sm-6 transaction-title'>
@@ -18,6 +37,7 @@ function Transactioncard({ _id, title, description, amount, category, type, crea
                     <span className='fs-6'> {type + "ed"}</span>
                 </span>
             </div>
+            <button onClick={deletetransactions} className='delete-btn'><img src={Delete} alt='' /></button>
         </div>
     )
 }

@@ -53,19 +53,6 @@ function Home() {
 
 
   return (<>
-    {/* <button onClick={() => {
-      localStorage.clear()
-      toast.loading("Loging out")
-
-      setTimeout(() => {
-        window.location.href = '/'
-      }, 2000)
-    }} className='btn m-5'>
-      Logout</button> */}
-
-    <div>
-
-    </div>
 
     <div className='main mt-4 d-flex flex-wrap justify-content-around'>
       <Addtransaction user={user} />
@@ -89,13 +76,14 @@ function Home() {
               const { _id, title, description, amount, category, type, createdAt } = transaction
 
               return (<Transactioncard
-                key={_id}
+                _id={_id}
                 title={title}
                 description={description}
                 amount={amount}
                 category={category}
                 type={type}
                 createdAt={createdAt}
+                loadTransactions={loadTransactions}
               />)
             })
           }
