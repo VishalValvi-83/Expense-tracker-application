@@ -25,6 +25,11 @@ const dbconnection = async () => {
 
 dbconnection();
 
+
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
+  });
+  
 app.get("/", (req, res) => {
     res.send("Hello, server is healthy...  Have a good day");
 })
