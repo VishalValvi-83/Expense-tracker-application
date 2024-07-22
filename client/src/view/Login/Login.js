@@ -11,7 +11,10 @@ function Login() {
       email: email,
       password: password
     })
-    if (response.data.success) {
+    if (!response.data.message) {
+      toast.error(response.data.message)
+    }
+    else if (response.data.success) {
       toast.success(response.data.message)
       localStorage.setItem('currentUser', JSON.stringify(response.data.data))
       toast.loading("Redireting to Dashboard")
@@ -31,10 +34,6 @@ function Login() {
       setTimeout(() => {
         document.getElementById('floatingPassword').classList.remove('is-invalid')
       }, 3000)
-    }
-
-    else {
-      toast.error(response.data.message)
     }
   }
 
