@@ -26,7 +26,7 @@ const dbconnection = async () => {
 dbconnection();
 
 app.get("/", (req, res) => {
-    res.send("Hello, World!");
+    res.send("Hello, server is healthy...  Have a good day");
 })
 
 app.post("/signup", postSignup)
