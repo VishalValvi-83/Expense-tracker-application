@@ -50,7 +50,7 @@ function Home() {
     })
     setTotalIncome(income)
     setTotalExpense(expense)
-  })
+  },[transaction])
 
 
   return (<>
