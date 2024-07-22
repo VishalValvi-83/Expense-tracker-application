@@ -4,7 +4,7 @@ import Delete from './trash-bin.png'
 import toast from 'react-hot-toast'
 import axios from 'axios'
 
-function Transactioncard({ _id, title, description, amount, category, type, createdAt, loadTransactions }) {
+function Transactioncard({ _id, title, description, amount, category, type, createdAt, }) {
 
     const deletetransactions = async () => {
         if (!_id) {
@@ -17,7 +17,10 @@ function Transactioncard({ _id, title, description, amount, category, type, crea
         } catch (error) {
           toast.error("Failed to delete transaction!")
         }
-        loadTransactions()
+        setTimeout(() => {
+          window.location.href = '/'
+        }, 1000);
+       
       }
 
     return (

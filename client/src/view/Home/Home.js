@@ -38,7 +38,7 @@ function Home() {
     }
 
     loadTransactions()
-  }, [transaction, user])
+  }, [ user])
 
   useEffect(() => {
     let income = 0
