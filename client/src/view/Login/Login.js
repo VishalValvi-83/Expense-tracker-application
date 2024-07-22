@@ -12,9 +12,9 @@ function Login() {
       password: password
     })
     if (!response.data.message) {
-      toast.error(response.data.message)
+      return
     }
-    else if (response.data.success) {
+    else{
       toast.success(response.data.message)
       localStorage.setItem('currentUser', JSON.stringify(response.data.data))
       toast.loading("Redireting to Dashboard")
@@ -22,18 +22,18 @@ function Login() {
         toast.dismiss()
         window.location.href = '/'
       }, 2000)
-    } else if (email.length === 0) {
-      toast.error("Please Enter Email")
-      document.getElementById('floatingInput').classList.add('is-invalid')
-      setTimeout(() => {
-        document.getElementById('floatingInput').classList.remove('is-invalid')
-      }, 3000)
-    } else if (password.length === 0) {
-      toast.error("Please Enter Password")
-      document.getElementById('floatingPassword').classList.add('is-invalid')
-      setTimeout(() => {
-        document.getElementById('floatingPassword').classList.remove('is-invalid')
-      }, 3000)
+      // } else if (email.length === 0) {
+      //   toast.error("Please Enter Email")
+      //   document.getElementById('floatingInput').classList.add('is-invalid')
+      //   setTimeout(() => {
+      //     document.getElementById('floatingInput').classList.remove('is-invalid')
+      //   }, 3000)
+      // } else if (password.length === 0) {
+      //   toast.error("Please Enter Password")
+      //   document.getElementById('floatingPassword').classList.add('is-invalid')
+      //   setTimeout(() => {
+      //     document.getElementById('floatingPassword').classList.remove('is-invalid')
+      //   }, 3000)
     }
   }
 
