@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './login.css'
 import axios from 'axios'
 import toast from 'react-hot-toast'
+import Navbar from '../../components/Navbar/Navbar'
 function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -37,7 +38,8 @@ function Login() {
     }
   }
 
-  return (
+  return (<>
+    <Navbar />
     <div className='container-fluid d-flex justify-content-center'>
       <div className='login-form '>
         <h1 className='form-heading  my-4'>LOGIN</h1>
@@ -61,6 +63,7 @@ function Login() {
         </div>
       </div>
     </div>
+  </>
   )
 }
 

@@ -30,9 +30,8 @@ body {
 
 .signup-form,
 .login-form {
-
   padding: 40px 20px;
-  margin-top: 50px;
+  margin-top: 30px;
   border-radius: 5px;
   width: 550px;
   font: 12px Arial, Helvetica, sans-serif;

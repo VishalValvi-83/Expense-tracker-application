@@ -4,6 +4,7 @@ import toast from 'react-hot-toast'
 import axios from 'axios'
 import Transactioncard from '../../components/Transationcs/Transactioncard'
 import Addtransaction from '../Add/Addtransaction'
+import Navbar from '../../components/Navbar/Navbar'
 function Home() {
   const [user, setUser] = useState('')
   const [transaction, setTransaction] = useState([])
@@ -53,8 +54,8 @@ function Home() {
 
 
   return (<>
-
-    <div className='main mt-4 d-flex flex-wrap justify-content-around'>
+  <Navbar/>
+    <div className='main mt-4 d-flex flex-wrap'>
       <Addtransaction user={user} />
       <div className='dash-transaction-cotainer'>
         <div className='dashboard mb-3' >
@@ -66,7 +67,7 @@ function Home() {
             <p className='expense '>
               <span>Total Expense: </span> <br />
               {"₹" + totalExpense}</p>
-            <p className='total-balance'>{totalIncome - totalExpense > 0 ? "Net Income : " : "Net Loss: "}  <br />
+            <p className='total-balance '>{totalIncome - totalExpense > 0 ? "Net Income : " : "Net Loss: "}  <br />
               ₹{totalIncome - totalExpense} </p>
           </div>
         </div>

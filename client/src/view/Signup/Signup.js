@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import toast from 'react-hot-toast'
+import Navbar from '../../components/Navbar/Navbar'
 
 function Signup() {
   const [user, setUser] = useState({
@@ -32,6 +33,8 @@ function Signup() {
   }
 
   return (
+    <>
+    <Navbar/>
     <div className='container-fluid d-flex justify-content-center'>
       <div className='signup-form '>
         <h1 className='form-heading mb-3'>Sign Up</h1>
@@ -71,6 +74,7 @@ function Signup() {
         </div>
       </div>
     </div>
+    </>
   )
 }
 
