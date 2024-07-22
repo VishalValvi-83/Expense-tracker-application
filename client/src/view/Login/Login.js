@@ -41,16 +41,16 @@ function Login() {
     <div className='container-fluid d-flex justify-content-center'>
       <div className='login-form '>
         <h1 className='form-heading  my-4'>LOGIN</h1>
-        <div class="form-floating mb-3">
-          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"
+        <div className="form-floating mb-3">
+          <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
           <label for="floatingInput">Email address</label>
         </div>
 
-        <div class="form-floating mb-3">
-          <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
+        <div className="form-floating mb-3">
+          <input type="password" className="form-control" id="floatingPassword" placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)} />
           <label for="floatingPassword">Password</label>

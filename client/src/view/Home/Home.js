@@ -3,6 +3,7 @@ import './Home.css'
 import toast from 'react-hot-toast'
 import axios from 'axios'
 import Transactioncard from '../../components/Transationcs/Transactioncard'
+import Addtransaction from '../Add/Addtransaction'
 function Home() {
   const [user, setUser] = useState('')
   const [transaction, setTransaction] = useState([])
@@ -52,8 +53,6 @@ function Home() {
 
 
   return (<>
-    <div>Welcome {user.fullName}
-    </div>
     {/* <button onClick={() => {
       localStorage.clear()
       toast.loading("Loging out")
@@ -68,41 +67,41 @@ function Home() {
 
     </div>
 
+    <div className='main mt-4 d-flex flex-wrap justify-content-around'>
+      <Addtransaction user={user} />
+      <div className='dash-transaction-cotainer'>
+        <div className='dashboard mb-3' >
+          <h3 className='mb-3 form-heading text-light text-center'>Dashboard</h3>
+          <div className='amount-container'>
+            <p className='income '>
+              <span>Total Income: </span> <br /> {"₹" + totalIncome}</p>
 
-    <div className='container-md'>
-      <div className='dashboard mb-3' >
-        <h3 className='mb-3 text-center'>Dashboard</h3>
-        <div className='amount-container'>
-          <p className='income '>
-            <span>Total Income: </span> <br /> {"₹" + totalIncome}</p>
+            <p className='expense '>
+              <span>Total Expense: </span> <br />
+              {"₹" + totalExpense}</p>
+            <p className='total-balance'>{totalIncome - totalExpense > 0 ? "Net Income : " : "Net Loss: "}  <br />
+              ₹{totalIncome - totalExpense} </p>
+          </div>
+        </div>
+        <div className='transaction-container '>
+          {
+            transaction.map((transaction) => {
+              const { _id, title, description, amount, category, type, createdAt } = transaction
 
-          <p className='expense '>
-            <span>Total Expense: </span> <br />
-            {"₹" + totalExpense}</p>
-          <p className='total-balance'>{totalIncome - totalExpense > 0 ? "Net Income : " : "Net Loss: "}  <br />
-            ₹{totalIncome - totalExpense} </p>
+              return (<Transactioncard
+                key={_id}
+                title={title}
+                description={description}
+                amount={amount}
+                category={category}
+                type={type}
+                createdAt={createdAt}
+              />)
+            })
+          }
         </div>
       </div>
-      <div className='transaction-container '>
-        {
-          transaction.map((transaction) => {
-            const { _id, title, description, amount, category, type, createdAt } = transaction
-
-            return (<Transactioncard
-              key={_id}
-              title={title}
-              description={description}
-              amount={amount}
-              category={category}
-              type={type}
-              createdAt={createdAt}
-            />)
-          })
-        }
-      </div>
     </div>
-
-
 
   </>)
 

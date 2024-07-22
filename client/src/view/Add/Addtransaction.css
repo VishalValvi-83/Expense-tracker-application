@@ -1,0 +1,10 @@
+.add-transaction-from{
+    width: 400px;
+    padding: 10px;
+    margin-top: 0;
+    background-image: none;
+    background-color: #83c5be;
+}
+.add-transaction-from .form-heading{
+    font-size: 25px;
+}
