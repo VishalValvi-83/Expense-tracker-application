@@ -29,7 +29,7 @@ function Home() {
       return
     }
     toast.loading("Loding Transactions")
-    const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/transactions?userId=${user._id}`)
+    const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}transactions?userId=${user._id}`)
     toast.dismiss()
     setTransaction(response.data.data)
   }
